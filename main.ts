@@ -47,7 +47,7 @@ maqueen.IR_callbackUser(function ({ myparam: message }) {
             . . # . .
             `)
     }
-    if (message == 64) {
+    if (message == 68) {
         maqueen.motorStopAll()
         maqueen.writeLED(maqueen.LED.LEDLeft, maqueen.LEDswitch.turnOff)
         maqueen.writeLED(maqueen.LED.LEDRight, maqueen.LEDswitch.turnOff)
@@ -62,6 +62,30 @@ maqueen.IR_callbackUser(function ({ myparam: message }) {
     if (message == 9) {
         music.playMelody("C5 A G E G F B C5 ", 120)
     }
+    if (message == 0) {
+        servos.P1.setAngle(90)
+    }
+    if (message == 1) {
+        servos.P1.setAngle(50)
+    }
+    if (message == 2) {
+        servos.P1.setAngle(0)
+    }
+    if (message == 3) {
+        servos.P1.setAngle(-30)
+    }
+    if (message == 17) {
+        servos.P2.setAngle(90)
+    }
+    if (message == 18) {
+        servos.P2.setAngle(50)
+    }
+    if (message == 19) {
+        servos.P2.setAngle(0)
+    }
+    if (message == 20) {
+        servos.P2.setAngle(-30)
+    }
 })
 let BLUE = 0
 let GREEN = 0
@@ -75,18 +99,18 @@ basic.forever(function () {
         RED += 1
         BLUE += -1
         item.showColor(neopixel.rgb(RED, GREEN, BLUE))
-        basic.pause(1000)
+        basic.pause(1)
     }
     for (let index = 0; index < 255; index++) {
         GREEN += 1
         RED += -1
         item.showColor(neopixel.rgb(RED, GREEN, BLUE))
-        basic.pause(1000)
+        basic.pause(1)
     }
     for (let index = 0; index < 255; index++) {
         BLUE += 1
         GREEN += -1
         item.showColor(neopixel.rgb(RED, GREEN, BLUE))
-        basic.pause(1000)
+        basic.pause(1)
     }
 })
